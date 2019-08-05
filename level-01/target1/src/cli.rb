@@ -2,12 +2,17 @@
 require_relative './application'
 
 # The Main application that will be running your code
+def cls
+  system 'cls'
+end
+
 def main_display
   puts "Please choose the action you would like to perform?" \
   "\n1. Enroll into a department" \
   "\n2. Change your department" \
   "\n3. Change your section" \
-  "\n4. View details"
+  "\n4. View details" \
+  "\n5. Show Departments"
 end
 
 def common_question_1
@@ -79,7 +84,11 @@ loop do
       student_name = gets.chomp
       puts application.student_details student_name
     end
+  when 5
+    application.show
   end
   puts 'Press any key to go back'
   gets
+  cls
 end
+
