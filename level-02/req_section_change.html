@@ -1,26 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
-<body style="background-image: url('white.jpg');">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
 <h2><b><center> REQUEST SECTION CHANGE</center> </b></h2>
 <br>
 <br>
 <center>
 <form>
- Roll Number:<br>
- <input type="text" name="Roll Number" value=" " style="border-radius:12px;width:20%;padding:20px 30px;">
+<div>
+<label for="Roll number:">Roll Number:</label><br>
+ <input type="text" name="Roll Number" value=" " class="check">
  <br><br>
- Select Section:<br>
- <select style="border-radius:12px;width:25%;padding:20px 30px;">
-  <option value= "A">A</option>
+<label for="Select selection">Select Section:</label><br>
+ <select class="check">
+  <option value= "any">any</option>
+  <option value="A">A</option>
   <option value="B">B</option>
   <option value="C">C</option>
 </select>
-<br>
+</div>
 </form>
-<br><br>
-<a href="index.html"> <button style="border-radius:12px;padding:15px;color:black;background-color:white;">GO BACK</button></a>
- <button style="border-radius:12px;padding:15px;background-color:purple;color:white;">Request</button>
-
+<div>
+<a id="b1" href="index.html">Go Back</a>
+ <input class="b2" type="submit" value="Request">
+</div>
 </center>
 </body>
 </html>

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-<body style="background-image: url('white.jpg');">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
 <h2><b><center> FETCH STUDENT DETAILS</center></b></h2>
 <br><br>
 <center>
 <form>
-Roll Number:<br>
-<input type="text" name="Roll Number" value=" " style="border-radius:12px;width:20%;padding:20px 30px;">
-<br><br>
+<div>
+<label for="Roll number:">Roll Number:</label><br>
+<input type="text" name="Roll Number" value=" " class="check">
+</div>
 </form>
-<br><br>
-<a href="view_details.html"><button style="border-radius:12px;padding:15px;color:black;background-color:white;"> Go Back</buton></a>
-<button style="border-radius:12px;padding:15px;background-color:purple;color:white;">Request</button>
+<div>
+<a id="b1" href="view_details.html">Go Back</a>
+<input class="b2" type="submit" value="Request">
+</div>
 </center>
 </body>
 </html>

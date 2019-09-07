@@ -1,22 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
-<body style="background-image: url('white.jpg');">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
 <h2><b><center> ENROLL INTO A DEPARTMENT</center> </b></b2>
-<br>
-<br>
 <center>
-<form action="/index.php">
-Name:<br>
- <input type="text" name="Name" value=" " style="border-radius:12px;width:20%;padding:20px 30px;">
+<div>
+<form>
+<label for="Name:">Name:<br></label>
+ <input type="text" name="Name" value=" " class="check">
  <br><br>
- Department:<br>
- <input type="text" name="Department" value=" " style="border-radius:12px;width:20%;padding:20px 30px;">
-<br>
+<label for="Department:"> Department:<br></label>
+ <select class="check">
+ <option value="EEE">EEE</option>
+ <option value="CSE">CSE</option>
+ <option value="MECH">MECH</option>
+ <option value="CIVIL">CIVIL</option>
+</select>
 </form>
-<br><br>
-<a href="index.html"> <button style="border-radius:12px;padding:15px;color:black;background-color:white;">GO BACK</button></a>
- <button style="border-radius:12px;padding:15px;background-color:purple;color:white;">Register</button>
-
+</div>
+<div>
+<a id="b1" href="index.html">Go Back</a>
+&nbsp;
+ <input class="b2" type="submit" value="Register">
+</div>
 </center>
 </body>
 </html>
