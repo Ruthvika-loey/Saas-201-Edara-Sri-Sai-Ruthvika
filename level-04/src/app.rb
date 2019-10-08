@@ -1,47 +1,57 @@
 require 'sinatra'
-# Your app
-class TodoApp
-    def get_todos
-        @@id ||=0
-        @@todos ||= []
-    end
-    def add_todo(todo,date)
-        @@id+=1
-        get_todos()[@@id]=[todo,date]
-    end
-    def get_todo(id)
-        get_todos()[id]
-    end
-    def update_todo(id,title)
-        get_todos()[id][0]= title
-    end
-    def delete_todo(id)
-        get_todos().delete(id)
-    end
+
+def get_todos
+      @@todos||=Hash.new
 end
-todo_list=TodoApp.new
-delete "/todos/:id" do
-    @id = params[:id].to_i 
-    todo_list.delete_todo(@id)
-redirect "/todos"
+
+def add_todo(title,date)
+    get_todos()[title]=date  ;
 end
-put "/todos/:id" do
-    @id = params[:id].to_i
-    todo_list.update_todo(@id,params[:title])
-    redirect "/todos"
+
+def get_key
+  @@todos.keys[@id.to_i-1]
 end
-get "/todos/:id" do
-    @id = params[:id].to_i
-    @todo = todo_list.get_todo(@id)
-    erb :todo
+
+def get_todo()
+  {"title"=>get_key(),"date"=>get_todos[get_key()]}
 end
-get "/todos" do
-    @todos=todo_list.get_todos()
-    erb :todos
+
+def update_todo(title)
+  get_todos[title] = get_todos.delete "#{get_key()}"
 end
+
+def delete_todo
+  get_todos().delete(get_key())
+end
+
+get '/' do
+  redirect '/todos'
+end
+
+get '/todos' do
+  @todos = get_todos()
+  erb :todos
+end
+
+get '/todos/:id' do
+  @id=params[:id]
+  @todo=get_todo()
+  erb :todo
+end
+
 post "/todos" do
-    if params[:title].strip!=""
-    todo_list.add_todo(params[:title],params[:date])
-    end
-redirect "/todos"
+  add_todo(params[:title],params[:date])
+  redirect "/todos"
+end
+
+put '/todos/:id' do
+  @id=params[:id]
+  update_todo(params[:title])
+  redirect "/todos"
+end
+
+delete "/todos/:id" do
+  @id = params[:id]
+  delete_todo()
+  redirect "/todos"
 end
