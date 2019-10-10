@@ -1,3 +1,4 @@
+<!-- todos.erb -->
 <header>
   <div id='header-left'>
     <h1>Todo List</h1>
@@ -6,31 +7,35 @@
   <div>
     <form action="/todos" method="POST" class="form">
       <input type="text" name="title"/>
-      <input type="date" name="date"/>
-      <input type="submit"/>
+      <input type="date" name="date" value="">
+      <input type="submit" value="submit"/>
     </form>
   </div>
 </header>
-
 <section class='todos-container'>
+  
   <div class='gallery'>
-    <% @todos.each do |key,value| %>
-      <div class='btn-container'>
-        <h3>
-          <div>
-          <% if @todos[key][0].strip!="" %>
-          <a href="/todos/<%= key %>" class="todo-box"> <%= @todos[key][0] %></a>
-            <%if @todos[key][1]!="" %>
-            <span class="todo-box"><span class="dead_style">Deadline:</span><%= @todos[key][1] %></span>
-          <% end %>
-          <% end %>
-          <div>
-        </h3>
-        <form method='POST' action='/todos/<%= key %>'>
-          <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Delete'>
-        </form>
-      </div>
+    <%
+      @todos.each_with_index do |(title, date), index|
+    %>
+    <div class='btn-container' >
+           
+           <h3 style="display:inline-block">
+             <a href="/todos/<%= index + 1 %>" class="todo-box"> <%= title %></a>
+           </h3>
+
+           <h4 style="display:inline-block">
+             <% if date != "" %>Deadline<%= date %>
+             <% end %>
+           </h4>
+           
+           <form method='POST' action='/todos/<%= index + 1 %>'>
+             <input type='hidden' name='_method' value='delete'>
+             <input type='submit' value='Delete'>
+           </form>
+         
+    </div>
     <% end %>
   </div>
+
 </section>
