@@ -26,7 +26,8 @@ class StudentTest < ActiveSupport::TestCase
     dept.save
     sect.department = dept
     sect.save
-    student = Student.new name: 'A', roll_no: 1, email: 'asd@email.com', department: dept, section: sect
+    student = Student.new name: 'A', roll_no: 1, email: 'asd@email.com',
+                          department: dept, section: sect
     assert student.save
   end
 
@@ -36,7 +37,8 @@ class StudentTest < ActiveSupport::TestCase
     dept.save
     sect.department = dept
     sect.save
-    student = Student.new name: 'A', roll_no: 1, email: 'asd@email.com', department: dept, section: sect
+    student = Student.new name: 'A', roll_no: 1, email: 'asd@email.com',
+                          department: dept, section: sect
     student.save
     dept.destroy
     assert_raises ActiveRecord::RecordNotFound do

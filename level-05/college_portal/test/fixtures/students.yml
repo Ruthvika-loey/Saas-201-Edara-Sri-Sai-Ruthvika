@@ -3,9 +3,9 @@
 one:
   name: MyString
   email: MyString
-  roll_no: MyString
+  roll_no: 1
 
 two:
   name: MyString
   email: MyString
-  roll_no: MyString
+  roll_no: 1
